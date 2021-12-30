@@ -15,12 +15,12 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	@Query("SELECT pt FROM ProductType pt")
     List<ProductType> findAllProductTypes();
 	
-	@Query(nativeQuery = true, value = "SELECT * FROM product_type pt WHERE pt.name = ?1")
-    Optional<ProductType> findProductTypeByName(String name);
+	@Query("SELECT pt FROM ProductType pt WHERE pt.name = ?1")
+    ProductType findProductTypeByName(String name);
 	
     Optional<Product> findById(int id);
     
-	@Query(nativeQuery = true, value = "SELECT * FROM product p WHERE p.price < ?1")
+	@Query("SELECT p FROM Product p WHERE p.price < ?1")
     List<Product> findByPriceLessThan(double price);
 	
     Product findByName(String name);
