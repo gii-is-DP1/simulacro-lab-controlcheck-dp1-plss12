@@ -12,7 +12,7 @@ public interface ProductRepository  extends CrudRepository<Product, Integer>{
 	
     List<Product> findAll();
     
-	@Query(nativeQuery = true, value = "SELECT * FROM product_type")
+	@Query("SELECT pt FROM ProductType pt")
     List<ProductType> findAllProductTypes();
 	
 	@Query(nativeQuery = true, value = "SELECT * FROM product_type pt WHERE pt.name = ?1")

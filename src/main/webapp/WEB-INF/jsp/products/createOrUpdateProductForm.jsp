@@ -7,9 +7,7 @@
 <%@ taglib prefix="petclinic" tagdir="/WEB-INF/tags" %>
 
 <petclinic:layout pageName="products">
-    <h2>
-        <c:if test="${product['new']}">New </c:if> Product
-    </h2>
+
     <form:form modelAttribute="product" class="form-horizontal" id="add-product-form">
         <div class="form-group has-feedback">
             <petclinic:inputField label="Name" name="name"/>
@@ -22,14 +20,7 @@
         </div>
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-   				<c:choose>
-                    <c:when test="${product['new']}">
-                        <button class="btn btn-default" type="submit">Add Product</button>
-                    </c:when>
-                    <c:otherwise>
-                        <button class="btn btn-default" type="submit">Update Product</button>
-                    </c:otherwise>
-                </c:choose>            
+                        <button class="btn btn-default" type="submit">Add Product</button>            
              </div>
         </div>
     </form:form>
